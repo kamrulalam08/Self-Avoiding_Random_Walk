@@ -2,11 +2,16 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
+	static int count = 0;
 	static long NW = 1000000;
 	static int x = 0;
 	static int y = 0;
-	static int numSteps =3;
+	static int numSteps =40;
+	static int final_x =0;
+	static int final_y =0;
+	static long square_distance =0;
 	static String tempPosition = "";
+	static ArrayList<String> finalList = new ArrayList<String>();
 
 	public static void main(String[] args) {
 
@@ -27,6 +32,14 @@ public class Main {
 			else if(!myList.contains(tempPosition)) {
 			myList.add(tempPosition);
 			}
+			if(i == numSteps -1) {
+				final_x = x;
+				final_y= y;
+				
+				square_distance = (final_x * final_x) + (final_y * final_y) ;
+				System.out.println("square_distance = " + square_distance);
+				count++;
+			}
 		}
 		
 		for(int i =0; i< myList.size(); i++) {
@@ -34,6 +47,8 @@ public class Main {
 		}
 		System.out.println();
 	}
+	System.out.println();
+	System.out.println(count);
 }
 	
 	public static void nextStep() {
